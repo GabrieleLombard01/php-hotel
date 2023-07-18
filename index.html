@@ -35,11 +35,16 @@
                             Solo hotel con parcheggio
                         </label>
                     </div>
-                    <button type="submit" class="btn btn-primary mt-3">Cerca</button>
+                    <div class="form-group mt-3">
+                        <label for="ratingInput">Voto minimo:</label>
+                        <input type="number" class="form-control mt-2" id="ratingInput" name="rating" min="1" max="5">
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">Filtrare</button>
                 </form>
             </div>
         </div>
     </div>
+    
     
 <!--! JS Bootstrap link -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>

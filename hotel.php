@@ -37,9 +37,17 @@ $hotels = [
         'distance_to_center' => 50
     ],
 ];
-if (isset($_GET['parking'])) {
+if (isset($_GET['parking']) && isset($_GET['rating'])) {
+    $filteredHotels = array_filter($hotels, function ($hotel) {
+        return $hotel['parking'] && $hotel['vote'] >= $_GET['rating'];
+    });
+} elseif (isset($_GET['parking'])) {
     $filteredHotels = array_filter($hotels, function ($hotel) {
         return $hotel['parking'];
+    });
+} elseif (isset($_GET['rating'])) {
+    $filteredHotels = array_filter($hotels, function ($hotel) {
+        return $hotel['vote'] >= $_GET['rating'];
     });
 } else {
     $filteredHotels = $hotels;
