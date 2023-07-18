@@ -1,7 +1,6 @@
 <?php
 
 $hotels = [
-
     [
         'name' => 'Hotel Belvedere',
         'description' => 'Hotel Belvedere Descrizione',
@@ -37,5 +36,29 @@ $hotels = [
         'vote' => 2,
         'distance_to_center' => 50
     ],
-
 ];
+
+?>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Lista Hotel</title>
+</head>
+
+<body>
+    <ul>
+        <?php foreach ($hotels as $hotel) : ?>
+            <li>
+                <h2><?php echo $hotel['name']; ?></h2>
+                <p><?php echo $hotel['description']; ?></p>
+                <p>Parcheggio disponibile: <?php echo $hotel['parking'] ? 'Sì' : 'No'; ?></p>
+                <p>Voto: <?php echo $hotel['vote']; ?></p>
+                <p>Distanza dal centro: <?php echo $hotel['distance_to_center']; ?> km</p>
+            </li>
+        <?php endforeach; ?>
+    </ul>
+</body>
+
+</html>
