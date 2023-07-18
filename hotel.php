@@ -37,7 +37,13 @@ $hotels = [
         'distance_to_center' => 50
     ],
 ];
-
+if (isset($_GET['parking'])) {
+    $filteredHotels = array_filter($hotels, function ($hotel) {
+        return $hotel['parking'];
+    });
+} else {
+    $filteredHotels = $hotels;
+}
 ?>
 
 <!DOCTYPE html>
@@ -63,7 +69,7 @@ $hotels = [
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($hotels as $hotel) : ?>
+                <?php foreach ($filteredHotels as $hotel) : ?>
                     <tr>
                         <td><?php echo $hotel['name']; ?></td>
                         <td><?php echo $hotel['description']; ?></td>
